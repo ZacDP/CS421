@@ -13,13 +13,14 @@ def max_subarray_brute_force(in_list):
 
 
 def max_subarray_brute_force_refined(in_list):
-    maximum = float('-inf')
-    for i in range(0, len(in_list)):
-        current = 0
-    for j in range(i, len(in_list)):
-        current += in_list[j]
-        maximum = max(current, maximum)
-    return maximum
+    max_sum = 0
+    for i in range(len(in_list)):
+        sub_sum = 0
+        for j in range(i, len(in_list)):
+            sub_sum += in_list[j]
+            if sub_sum > max_sum:
+                max_sum  = sub_sum
+    return max_sum
 
 
 def max_subarray_recursive(in_list, begin, end):
